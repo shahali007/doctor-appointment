@@ -38,16 +38,15 @@ const YearMonthDropdown = ({ getYearMonthChange }) => {
   const handleYearChange = (val) => {
     setYear(val);
     handleChangeCalendar(val, filterMonth);
-    window.location.replace(result + "/year/" + val + "/month/" + filterMonth);
   };
   const handleMonthChange = (val) => {
     setMonth(val);
     handleChangeCalendar(filterYear, val);
-    window.location.replace(result + "/year/" + filterYear + "/month/" + val);
   };
 
   const handleChangeCalendar = (a, b) => {
     getYearMonthChange(a, b);
+    window.location.replace(result + "/year/" + a + "/month/" + b);
   };
 
   return (
