@@ -1,1 +1,2 @@
-# doctor-appointment
+### install npm
+`npm install`
