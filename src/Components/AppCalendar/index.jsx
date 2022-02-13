@@ -10,7 +10,6 @@ const localizer = momentLocalizer(moment);
 
 const AppCalendar = ({ year, month }) => {
   const { appointments } = useSelector((state) => state.appointments);
-  const [appoins, setAppoints] = React.useState(appointments);
   const [byDefaultDate, setByDefaultDate] = React.useState(new Date());
   appointments.sort(function (a, b) {
     return new Date(a.start) - new Date(b.start);
@@ -56,7 +55,7 @@ const AppCalendar = ({ year, month }) => {
       <Calendar
         popup
         localizer={localizer}
-        events={appoins}
+        events={appointments}
         defaultDate={byDefaultDate}
         onSelectEvent={(event) => handleOpen(event)}
         style={{ minHeight: "500px" }}

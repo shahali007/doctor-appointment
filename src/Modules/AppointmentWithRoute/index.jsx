@@ -61,7 +61,7 @@ const AppointmentWithRoute = (props) => {
       <Calendar
         popup
         localizer={localizer}
-        events={appoins}
+        events={appointments}
         defaultDate={byDefaultDate}
         onSelectEvent={(event) => handleOpen(event)}
         style={{ minHeight: "500px" }}
