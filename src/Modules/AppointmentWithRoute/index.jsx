@@ -7,20 +7,25 @@ import YearMonthDropdown from "../../Components/YearMonthDropdown";
 import CreateAppointment from "../../Components/Form";
 import Details from "../../Components/Details";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router";
 
 const localizer = momentLocalizer(moment);
 
 const AppointmentWithRoute = (props) => {
-  const { search } = useLocation();
+  const { year, month } = useParams();
   let url = window.location.href;
   let arr = url.split("/");
   let result = arr[0] + "//" + arr[2];
 
-  console.log("search", search);
+  React.useEffect(() => {
+    setByDefaultDate(new Date(year + " " + month + " " + "01"));
+  }, []);
 
   const { appointments } = useSelector((state) => state.appointments);
   const [appoins, setAppoints] = React.useState(appointments);
-  const [byDefaultDate, setByDefaultDate] = React.useState(new Date());
+  const [byDefaultDate, setByDefaultDate] = React.useState(
+    new Date(year + " " + month + " " + "01")
+  );
   appointments.sort(function (a, b) {
     return new Date(a.start) - new Date(b.start);
   });
@@ -38,7 +43,6 @@ const AppointmentWithRoute = (props) => {
 
   const getYearMonthChange = (year, month) => {
     console.log(year, month);
-    console.log(result + "/year/" + year + "/month/" + month);
   };
 
   return (
