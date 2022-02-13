@@ -1,0 +1,4 @@
+export const AppointmentType = {
+  APPOINTMENTS: "APPOINTMENTS",
+  ADD_APPOINTMENT: "ADD_APPOINTMENT",
+};
